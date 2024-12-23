@@ -1,4 +1,4 @@
-# Aplikasi Manajemen Data Siswa
+# Aplikasi Pengelolaan Data Siswa
 
 Ini adalah aplikasi Java sederhana untuk mengelola data siswa, termasuk NISN, nama, usia, dan gambar opsional. Aplikasi ini menyediakan antarmuka grafis (GUI) untuk menambah, memperbarui, menghapus, dan menyimpan data siswa ke dalam file teks.
 
