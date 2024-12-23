@@ -44,13 +44,13 @@ public class Testing {
     void testUpdateStudent() {
         // Add a student first
         app.NISNField.setText("9900");
-        app.nameField.setText("Dafa Nusa");
+        app.nameField.setText("Kurnia Nurhajijah");
         app.ageField.setText("18");
         app.addStudent();  // Ensure a student is added before updating
 
         // Set new values for the student
         app.NISNField.setText("9888");
-        app.nameField.setText("rizqullah");
+        app.nameField.setText("Ayesha");
         app.ageField.setText("20");
 
         // Simulate clicking the Update button
@@ -58,7 +58,7 @@ public class Testing {
 
         // Assert the table row is updated
         assertEquals("9900", tableModel.getValueAt(0, 0));
-        assertEquals("Dafa Nusa", tableModel.getValueAt(0, 1));
+        assertEquals("Kurnia Nurhajijah", tableModel.getValueAt(0, 1));
         assertEquals(18, tableModel.getValueAt(0, 2));
 
 
