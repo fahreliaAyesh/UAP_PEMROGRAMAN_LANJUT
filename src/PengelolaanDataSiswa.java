@@ -184,14 +184,51 @@ public class PengelolaanDataSiswa {
 
     public void deleteStudent() {
         try {
-            int selectedRow = table.getSelectedRow();
+            int selectedRow = table.getSelectedRow( );
             if (selectedRow == -1) {
                 throw new Exception("tidak ada baris yang dipilih");
             }
             tableModel.removeRow(selectedRow);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(frame, "terjadi kesalahan : " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(frame, "terjadi kesalahan : " + e.getMessage( ), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    private void saveToFile() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Text Files", "txt"));
+        int result = fileChooser.showSaveDialog(frame);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                writer.write("ID\tName\tAge\tImage\n");
+                // Write each row data into file, including the image path
+                for (int i = 0; i < tableModel.getRowCount(); i++) {
+                    writer.write(tableModel.getValueAt(i, 0) + "\t" +
+                            tableModel.getValueAt(i, 1) + "\t" +
+                            tableModel.getValueAt(i, 2) + "\t" +
+                            tableModel.getValueAt(i, 3) + "\n");
+                }
+                JOptionPane.showMessageDialog(frame, "Data berhasil disimpan!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(frame, "Gagal untuk menyimpan file : " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    public void clearFields() {
+        NISNField.setText("");
+        nameField.setText("");
+        ageField.setText("");
+        imageLabel.setIcon(null);
+        imageLabel.setText("Tidak ada gambar");
+        currentImage = null;
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(PengelolaanDataSiswa::new);
+    }
+}
+
 
 
