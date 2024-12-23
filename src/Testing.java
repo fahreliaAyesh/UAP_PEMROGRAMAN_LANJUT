@@ -20,7 +20,7 @@ public class Testing {
     void testAddStudent() {
         // Setup test data
         String id = "9900";
-        String name = "Dafa Nusa";
+        String name = "Kurnia Nurhajijah";
         int age = 18;
         String imagePath = "Tidak ada gambar";  // Assume no image chosen
 
@@ -95,7 +95,7 @@ public class Testing {
     void testClearFields() {
         // Set some values in the form
         app.NISNField.setText("9900");
-        app.nameField.setText("Dafa Nusa");
+        app.nameField.setText("Kurnia Nurhajijah");
         app.ageField.setText("18");
 
         // Call the clearFields method
@@ -111,7 +111,7 @@ public class Testing {
     void testInvalidAge() {
         // Try entering an invalid age (non-numeric value)
         app.NISNField.setText("9900");
-        app.nameField.setText("Dafa Nusa");
+        app.nameField.setText("Kurnia Nurhajijah");
         app.ageField.setText("invalid_age");
 
         // Try adding the student
